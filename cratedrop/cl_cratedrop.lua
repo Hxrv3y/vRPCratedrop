@@ -99,7 +99,7 @@ AddEventHandler("crateDrop", function(c)
     SetBlipColour(crateBlip, 2)
     
 
-    while GetEntityHeightAboveGround(activeCrate) > 2 do
+    while GetEntityHeightAboveGround(activeCrate) > 2 do -- when the Z in coords hits ground
         Wait(100)
     end
 
