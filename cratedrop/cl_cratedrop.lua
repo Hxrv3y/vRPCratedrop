@@ -104,7 +104,7 @@ AddEventHandler("crateDrop", function(c)
     end
 
     soundID = GetSoundId()
-    PlaySoundFromEntity(soundID, "Crate_Beeps", activeCrate, "MP_CRATE_DROP_SOUNDS", true, 0) --When the crate is nearby it beeps remove if you want
+    PlaySoundFromEntity(soundID, "Crate_Beeps", activeCrate, "MP_CRATE_DROP_SOUNDS", true, 0) --When the crate is nearby it beeps remove if you want.
     DetachEntity(activeParachute, true, true)
     DeleteEntity(activeParachute)
     ShootSingleBulletBetweenCoords(GetEntityCoords(activeCrate),GetEntityCoords(activeCrate) - vector3(0.0001, 0.0001, 0.0001),0,false,"weapon_flare",0,true,false,-1.0)
