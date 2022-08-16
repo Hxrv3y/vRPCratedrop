@@ -88,6 +88,7 @@ Citizen.CreateThread(function()
         Citizen.SetTimeout(stayTime * 1000, function()
         TriggerClientEvent("removeCrate", -1)
         TriggerClientEvent('chatMessage', -1, "^1[Wolfhill]: ^0 ", {66, 72, 245}, removeMsg, "alert")
+        TriggerClientEvent(vrp:PlaySound, -1, "YourSoundNameHere")
         end)
 
         Wait(stayTime * 1000 + 500)
