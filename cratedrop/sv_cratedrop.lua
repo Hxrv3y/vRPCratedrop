@@ -65,7 +65,7 @@ RegisterServerEvent('updateLoot', function(source, item, amount)
         end
     end
 
-            TriggerClientEvent('Eclipse:SendSecondaryInventoryData', source, currentLoot, vRP.computeItemsWeight({currentLoot}), 30)
+            TriggerClientEvent('vRP:SendSecondaryInventoryData', source, currentLoot, vRP.computeItemsWeight({currentLoot}), 30) -- your inventory thing here
 end) 
 
 Citizen.CreateThread(function()
