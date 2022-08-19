@@ -88,7 +88,7 @@ Citizen.CreateThread(function()
         Citizen.SetTimeout(stayTime * 1000, function()
         TriggerClientEvent("removeCrate", -1)
         TriggerClientEvent('chatMessage', -1, "^1[Wolfhill]: ^0 ", {66, 72, 245}, removeMsg, "alert")
-        TriggerClientEvent(vrp:PlaySound, -1, "YourSoundNameHere") -- if you are using vRP sound put where i put "YouSoundNameHere" what ever you put the .ogg file name name as in the manager.js
+        TriggerClientEvent("vrp:PlaySound", -1, "YourSoundNameHere") -- if you are using vRP sound put where i put "YouSoundNameHere" what ever you put the .ogg file name name as in the manager.js
         end)
 
         Wait(stayTime * 1000 + 500)
