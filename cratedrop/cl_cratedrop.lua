@@ -1,4 +1,4 @@
-local models = {"p_cargo_chute_s", "sm_prop_smug_crate_s_narc", "titan", "s_m_m_pilot_02"} --What models the first one is the parachute and the second one is the brief case
+local models = {"p_cargo_chute_s", "sm_prop_smug_crate_s_narc"} --What models the first one is the parachute and the second one is the brief case
 local activeCrate = nil
 local activeParachute = nil
 local crateBlip, radiusBlip = nil
@@ -34,49 +34,6 @@ AddEventHandler("crateDrop", function(c)
     while not HasWeaponAssetLoaded("weapon_flare") do
         Wait(0)
     end
-
-    local z = math.random(150.0, 350.0)
-    local Coords = vector3(c.x, c.y, c.z)
-
-    local j = math.random(0, 360) + 0.0
-    local k = 1500.0
-    local l = j / 180.0 * 3.14
-    local m = vector3(c.x, c.y, c.z) - vector3(math.cos(l) * k, math.sin(l) * k, -500.0)
-    local n = c.x - m.x
-    local o = c.y - m.y
-    local p = GetHeadingFromVector_2d(n, o)
-    local aircraft = CreateVehicle("titan", m.x, m.y, m.z, p, false, true)
-    SetEntityHeading(aircraft, p)
-    SetVehicleDoorsLocked(aircraft, 2)
-    SetEntityDynamic(aircraft, true)
-    ActivatePhysics(aircraft)
-    SetVehicleForwardSpeed(aircraft, 60.0)
-    SetHeliBladesFullSpeed(aircraft)
-    SetVehicleEngineOn(aircraft, true, true, false)
-    ControlLandingGear(aircraft, 3)
-    OpenBombBayDoors(aircraft)
-    SetEntityProofs(aircraft, true, false, true, false, false, false, false, false)
-    local q = CreatePedInsideVehicle(aircraft, 1, "s_m_m_pilot_02", -1, false, true)
-    SetBlockingOfNonTemporaryEvents(q, true)
-    SetPedRandomComponentVariation(q, false)
-    SetPedKeepTask(q, true)
-    SetTaskVehicleGotoPlaneMinHeightAboveTerrain(aircraft, 50)
-    TaskVehicleDriveToCoord(q,aircraft,vector3(c.x, c.y, c.z) + vector3(0.0, 0.0, 500.0),60.0,0,"titan",262144,15.0,-1.0)
-    local r = AddBlipForEntity(aircraft)
-    SetBlipSprite(r, 307)
-    SetBlipColour(r, 3)
-    local s = vector2(c.x, c.y)
-    local t = vector2(GetEntityCoords(aircraft).x, GetEntityCoords(aircraft).y)
-    while #(t - s) > 5.0 do
-        Wait(100)
-        t = vector2(GetEntityCoords(aircraft).x, GetEntityCoords(aircraft).y)
-    end
-    TaskVehicleDriveToCoord(q, aircraft, 0.0, 0.0, 500.0, 60.0, 0, "titan", 262144, -1.0, -1.0)
-    SetTimeout(30000,function()
-        DeleteEntity(aircraft)
-        DeleteEntity(q)
-        RemoveBlip(r)
-    end)
 
     activeCrate = CreateObject(GetHashKey(models[2]), Coords, false, true, true)
 
