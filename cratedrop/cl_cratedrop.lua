@@ -82,7 +82,7 @@ AddEventHandler("crateDrop", function(c)
                         TaskPlayAnim(PlayerPedId(), "anim@gangops@facility@servers@bodysearch@" ,"player_search" ,8.0, -8.0, -1, 48, 0, false, false, false )
                         notify("~r~Looting Crate Drop...")
                         FreezeEntityPosition(PlayerPedId(), true)
-                        Wait(5000)
+                        Wait(10000)
                         FreezeEntityPosition(PlayerPedId(), false)
                         ClearPedTasksImmediately(PlayerPedId())
                         if IsPedInAnyVehicle(GetPlayerPed(-1), false) == false then
