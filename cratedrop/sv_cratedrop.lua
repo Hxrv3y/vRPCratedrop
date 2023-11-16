@@ -1,4 +1,4 @@
-local Tunnel = module('vrp', 'lib/Tunnel') --Where it says 'vrp', 'lib/tunnel' and 'vrp', lib/Proxy change the 'vrp' to whatever your vrp resource is called
+local Tunnel = module('vrp', 'lib/Tunnel') --Where it says 'vrp', 'lib/tunnel' and 'vrp', 'lib/Proxy' change the 'vrp' to whatever your vrp resource is called
 local Proxy = module('vrp', 'lib/Proxy')
 vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP", "vRP_gunshop")
